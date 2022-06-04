@@ -40,11 +40,11 @@
     <!-- === Title Ends === -->
 
     <div class="author" style="margin-top: -30pt">
-        <a href="#" target="_blank">Tianyuan Zhang</a><sup>1</sup>,&nbsp;
+        <a href="https://tianyuanzhang.com/" target="_blank">Tianyuan Zhang</a><sup>1</sup>,&nbsp;
         <a href="#" target="_blank">Xuanyao Chen</a><sup>2</sup>,&nbsp;
-        <a href="#" target="_blank">Yue Wang</a><sup>3</sup>,&nbsp;
-        <a href="#">Yilun Wang</a><sup>4</sup>,&nbsp;
-        <a href="#">Hang Zhao</a><sup>5</sup>,&nbsp;
+        <a href="https://people.csail.mit.edu/yuewang/" target="_blank">Yue Wang</a><sup>3</sup>,&nbsp;
+        <a href="https://scholar.google.com.hk/citations?hl=en&user=nUyTDosAAAAJ">Yilun Wang</a><sup>4</sup>,&nbsp;
+        <a href="https://hangzhaomit.github.io/">Hang Zhao</a><sup>5</sup>&nbsp;
     </div>
 
     <div class="institution">
@@ -89,12 +89,11 @@
 
 
 <div class="section">
-    <div class="title" id="lang">MetaDrive Simulator</div>
+    <div class="title" id="lang">Abstract</div>
     <p>
-        To facilitate the research of generalizable reinforcement learning, we develop an open-source, highly efficient
-        and flexible driving simulator MetaDrive, which holds the following key features:
+     Accurate and consistent 3D tracking from multiple cameras is a key component in a vision-based autonomous driving system. It involves modeling 3D dynamic objects in complex scenes across multiple cameras. This problem is inherently challenging due to depth estimation, visual occlusions, appearance ambiguity, etc. Moreover, objects are not consistently associated across time and cameras. To address that, we propose an end-to-end <b>MU</b>lticamera <b>TR</b>acking framework called MUTR3D. In contrast to prior works, MUTR3D does not explicitly rely on the spatial and appearance similarity of objects. Instead, our method introduces 3D track query to model spatial and appearance coherent track for each object that appears in multiple cameras and multiple frames. We use camera transformations to link 3D trackers with their observations in 2D images. Each tracker is further refined according to the features that are obtained from camera images. MUTR3D uses a set-to-set loss to measure the difference between the predicted tracking results and the ground truths. Therefore, it does not require any post-processing such as non-maximum suppression and/or bounding box association. MUTR3D outperforms state-of-the-art methods by <b>5.3</b> AMOTA on the nuScenes dataset.
     </p>
-    <ul>
+    <!-- <ul>
         <li>
             <b>Compositional</b>: It supports generating infinite scenes with various road maps and traffic settings for the
             research of generalizable RL.
@@ -106,11 +105,8 @@
             <b>Realistic</b>: Accurate physics simulation and multiple sensory input including Lidar, RGB images, top-down
             semantic map and first-person view images. The real traffic data replay is also supported.
         </li>
-    </ul>
-    <p>
-        We construct a variety of RL tasks and baselines in both single-agent and multi-agent settings, including
-        benchmarking generalizability across unseen scenes, safe exploration, and learning multi-agent traffic. 
-    </p>
+    </ul> -->
+ 
 </div>
 
 
