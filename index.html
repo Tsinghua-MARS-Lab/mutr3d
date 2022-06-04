@@ -34,7 +34,7 @@
 
     <div class="header">
         <div style="" class="title" id="lang">
-            MUTR3D: A Multi-camera Tracking Framework via 3D-to-2D Queries
+            <b>MUTR3D</b>: A Multi-camera Tracking Framework via 3D-to-2D Queries
         </div>
     </div>
     <!-- === Title Ends === -->
@@ -81,6 +81,9 @@
             </tr>
         </table>
     </div> -->
+    <p>
+        An end-to-end multi-camera 3D tracking framework that works with arbrtary camera rigs with known parameters. MUTR3D handles multi-camera 3D detection, and cross-camera, cross-frame objects association in an end-to-end fashion.
+    </p>
     
 </div>
 <!-- === Home Section Ends === -->
@@ -91,7 +94,7 @@
 <div class="section">
     <div class="title" id="lang">Abstract</div>
     <p>
-     Accurate and consistent 3D tracking from multiple cameras is a key component in a vision-based autonomous driving system. It involves modeling 3D dynamic objects in complex scenes across multiple cameras. This problem is inherently challenging due to depth estimation, visual occlusions, appearance ambiguity, etc. Moreover, objects are not consistently associated across time and cameras. To address that, we propose an end-to-end <b>MU</b>lticamera <b>TR</b>acking framework called MUTR3D. In contrast to prior works, MUTR3D does not explicitly rely on the spatial and appearance similarity of objects. Instead, our method introduces 3D track query to model spatial and appearance coherent track for each object that appears in multiple cameras and multiple frames. We use camera transformations to link 3D trackers with their observations in 2D images. Each tracker is further refined according to the features that are obtained from camera images. MUTR3D uses a set-to-set loss to measure the difference between the predicted tracking results and the ground truths. Therefore, it does not require any post-processing such as non-maximum suppression and/or bounding box association. MUTR3D outperforms state-of-the-art methods by <b>5.3</b> AMOTA on the nuScenes dataset.
+     Accurate and consistent 3D tracking from multiple cameras is a key component in a vision-based autonomous driving system. It involves modeling 3D dynamic objects in complex scenes across multiple cameras. This problem is inherently challenging due to depth estimation, visual occlusions, appearance ambiguity, etc. Moreover, objects are not consistently associated across time and cameras. To address that, we propose an end-to-end <b>MU</b>lti-camera <b>TR</b>acking framework called MUTR3D. In contrast to prior works, MUTR3D does not explicitly rely on the spatial and appearance similarity of objects. Instead, our method introduces 3D track query to model spatial and appearance coherent track for each object that appears in multiple cameras and multiple frames. We use camera transformations to link 3D trackers with their observations in 2D images. Each tracker is further refined according to the features that are obtained from camera images. MUTR3D uses a set-to-set loss to measure the difference between the predicted tracking results and the ground truths. Therefore, it does not require any post-processing such as non-maximum suppression and/or bounding box association. MUTR3D outperforms state-of-the-art methods by <b>5.3</b> AMOTA on the nuScenes dataset.
     </p>
     <!-- <ul>
         <li>
@@ -109,6 +112,51 @@
  
 </div>
 
+<div class="section">
+    <div class="title" id="lang">Method</div>
+    <div class="logo" style="" align="center">
+        <img style="width: 700pt;" src="images/MUTR3D.png">
+    </div>
+    <p>
+    <b>Query-based 3D tracking.</b> Query-based tracking is extended from query-based detection, where detect queries, a fixed-size set of embedding, are used to represent 2D object candidates. Track query extends the concept of the detect query to multi-frames, i.e., representing a whole tracklet across frames. Specifically, we initialize a set of newborn queries at the beginning of each frame, then queries update themselves frame-by-frame in an auto-regressive way. A decoder head predicts one object candidate from each track query in each frame, and boxes decoded in different frames from the same track query are directly associated. With proper query life cycle management, query-based tracking can perform joint detection and track in an online fashion. 
+    </p>
+<p>There are three key ingredients in our query-based multi-camera 3D tracker, as shown in above figure.</p>
+<ul>
+<li>A query-based object tracking loss assigns different regression targets for two different types of queries, newborn queries, and old queries. </li>
+<li>A multi-camera sparse attention uses 3D reference points to sample image features for each query.</li>  
+<li>A motion model estimates object dynamics and updates the query's reference point across frames. </li> 
+</ul>
+    
+</div>
+
+
+<div class="section">
+    <div class="title" id="lang">Related Projects</div>
+    <div class="col text-center">
+
+    <table width="100%" style="margin: 0pt 0pt; text-align: center;">
+    <tr>
+      <td>
+      <a href="https://tsinghua-mars-lab.github.io/HDMapNet/" class="d-inline-block p-3"><img height="100"
+          src="https://tsinghua-mars-lab.github.io/HDMapNet/images/scene0_car_small.gif" style="border:1px solid" data-nothumb><br>HDMapNet</a>
+      </td>
+      <td>
+        <a href="#" class="d-inline-block p-3"><img height="100"
+          src="http://group.iiis.tsinghua.edu.cn/~marslab/static/img/logo_3.f540b5fb.png" style="border:1px solid"
+          data-nothumb><br>DETR3D</a>
+      </td>
+      <td>
+      <a href="#" class="d-inline-block p-3"><img height="100"
+          src="http://group.iiis.tsinghua.edu.cn/~marslab/static/img/logo_3.f540b5fb.png" style="border:1px solid"
+          data-nothumb><br>FUTR3D</a>
+      </td>
+
+    </tr>
+    </table>
+    </div>
+
+    
+</div>
 
 <!-- === Reference Section Starts === -->
 <div class="section">
